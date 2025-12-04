@@ -3,10 +3,18 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "author": "Mukul",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "nodemon": "^3.1.11"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.ts"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }
