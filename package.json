@@ -10,12 +10,15 @@
     "prettier": "^3.7.4"
   },
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "start": "bun --watch run src/index.ts"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "dotenv": "^17.2.3"
+    "@types/express": "^5.0.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.0.0"
   }
 }
