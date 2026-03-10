@@ -1,10 +1,9 @@
 export const asyncHandler =
-  (fn: Function) =>
-  async ({ req, res, next }: any) => {
+  (fn: Function) => async (req: any, res: any, next: any) => {
     try {
       await fn(req, res, next);
     } catch (error: any) {
-      res.status(error.code || 500).json({
+      res.status(error.code === 11000 ? 409 : error.code || 500).json({
         success: false,
         message: error.message,
       });

@@ -3,11 +3,6 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 const UserSchema = new Schema(
   {
-    id: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     username: {
       type: String,
       required: true,
@@ -33,7 +28,7 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    coverimage: {
+    coverImage: {
       type: String,
     },
     watchhistory: [{ type: mongoose.Schema.Types.ObjectId, ref: "Video" }],
@@ -47,10 +42,9 @@ const UserSchema = new Schema(
   },
   { timestamps: true }
 );
-UserSchema.pre("save", async function (next: any) {
+UserSchema.pre("save", async function () {
   if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 10);
-    next();
   }
 });
 UserSchema.methods.isPasswordCorrect = async function (password: string) {
